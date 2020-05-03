@@ -1,0 +1,192 @@
+{
+	"info": {
+		"_postman_id": "eae991d3-24a9-4cc7-8c1f-d3e2b0103b2b",
+		"name": "image-filter-api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "filteredimage Success",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQHVkYWdyYW0uY29tIiwicGFzc3dvcmRfaGFzaCI6IiQyYiQxMCRuaW43eVdSQ2tEdy9qdkZlWGZwUWEueHg3WTJsVElrWUZNMHE1UDIxeTFzSnc2UnVFR0lydSIsImNyZWF0ZWRBdCI6IjIwMjAtMDUtMDNUMjE6MDM6MTYuNTI0WiIsInVwZGF0ZWRBdCI6IjIwMjAtMDUtMDNUMjE6MDM6MTYuNTI0WiIsImlhdCI6MTU4ODUzOTc5Nn0.s5Thr9L4VnEIcMKtE3WVvQvbEcrn6X-Lfq9rrNwv1J4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/filteredimage?image_url=https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"filteredimage"
+					],
+					"query": [
+						{
+							"key": "image_url",
+							"value": "https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "filteredimage 404 Image URL",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImhlbGxvdXNlckB1ZGFncmFtLmNvbSIsInBhc3N3b3JkX2hhc2giOiIkMmIkMTAkOTZlS3BjTFdUSFFPcHAyYllsbEI3T0sxU0FCYzZiYTEweGlZdkJPcmlZN0tzd09sYnkvSXEiLCJjcmVhdGVkQXQiOiIyMDIwLTA1LTAyVDE0OjEwOjMzLjMwMloiLCJ1cGRhdGVkQXQiOiIyMDIwLTA1LTAyVDE0OjEwOjMzLjMwM1oiLCJpYXQiOjE1ODg0NDU0NDd9.mtZlixKiCE9CQj8rIIyBD4iaX8Vlij_UmKY8YO9R6_o",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/filteredimage?image_url=https://timedotcom.files.wordpress.com/2019/03/kitten-report.jpg",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"filteredimage"
+					],
+					"query": [
+						{
+							"key": "image_url",
+							"value": "https://timedotcom.files.wordpress.com/2019/03/kitten-report.jpg"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "filteredimage Invalid URL",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImhlbGxvdXNlckB1ZGFncmFtLmNvbSIsInBhc3N3b3JkX2hhc2giOiIkMmIkMTAkOTZlS3BjTFdUSFFPcHAyYllsbEI3T0sxU0FCYzZiYTEweGlZdkJPcmlZN0tzd09sYnkvSXEiLCJjcmVhdGVkQXQiOiIyMDIwLTA1LTAyVDE0OjEwOjMzLjMwMloiLCJ1cGRhdGVkQXQiOiIyMDIwLTA1LTAyVDE0OjEwOjMzLjMwM1oiLCJpYXQiOjE1ODg0NDU0NDd9.mtZlixKiCE9CQj8rIIyBD4iaX8Vlij_UmKY8YO9R6_o",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/filteredimage?image_url=timedotcom",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"filteredimage"
+					],
+					"query": [
+						{
+							"key": "image_url",
+							"value": "timedotcom"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "filteredimage Query Param missing",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImhlbGxvdXNlckB1ZGFncmFtLmNvbSIsInBhc3N3b3JkX2hhc2giOiIkMmIkMTAkOTZlS3BjTFdUSFFPcHAyYllsbEI3T0sxU0FCYzZiYTEweGlZdkJPcmlZN0tzd09sYnkvSXEiLCJjcmVhdGVkQXQiOiIyMDIwLTA1LTAyVDE0OjEwOjMzLjMwMloiLCJ1cGRhdGVkQXQiOiIyMDIwLTA1LTAyVDE0OjEwOjMzLjMwM1oiLCJpYXQiOjE1ODg0NDU0NDd9.mtZlixKiCE9CQj8rIIyBD4iaX8Vlij_UmKY8YO9R6_o",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/filteredimage",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"filteredimage"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "filteredimage No Auth",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/filteredimage?image_url=https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"filteredimage"
+					],
+					"query": [
+						{
+							"key": "image_url",
+							"value": "https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "7ccec37b-e1ed-4936-a0c3-d905e282432f",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "28ebca00-c139-474b-aaa8-20f64e7cae96",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "2175b0b6-afdf-49fe-9963-5a406ec821fb",
+			"key": "host",
+			"value": "http://udagram-image-filter-dev.eu-west-1.elasticbeanstalk.com",
+			"type": "string"
+		}
+	],
+	"protocolProfileBehavior": {}
+}
