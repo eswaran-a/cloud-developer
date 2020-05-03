@@ -2,6 +2,7 @@ import { Router, Request, Response } from 'express';
 import { FeedItem } from '../models/FeedItem';
 import { requireAuth } from '../../users/routes/auth.router';
 import * as AWS from '../../../../aws';
+import { config } from '../../../../config/config';
 
 const router: Router = Router();
 
@@ -10,7 +11,7 @@ router.get('/', async (req: Request, res: Response) => {
     const items = await FeedItem.findAndCountAll({order: [['id', 'DESC']]});
     items.rows.map((item) => {
         if(item.url) {
-            item.url = AWS.getGetSignedUrl(item.url);
+            item.url = `${config.imageFilter.url}${encodeURIComponent(AWS.getGetSignedUrl(item.url))}`;
         }
     });
     res.send(items);
@@ -47,7 +48,7 @@ router.patch('/:id',
 
         const saved_item = await item.save();
 
-        saved_item.url = AWS.getGetSignedUrl(saved_item.url);
+        saved_item.url = `${config.imageFilter.url}${encodeURIComponent(AWS.getGetSignedUrl(item.url))}`;
         res.status(201).send(saved_item);
     });
 
@@ -87,7 +88,7 @@ router.post('/',
 
         const saved_item = await item.save();
 
-        saved_item.url = AWS.getGetSignedUrl(saved_item.url);
+        saved_item.url = `${config.imageFilter.url}${encodeURIComponent(AWS.getGetSignedUrl(item.url))}`;
         res.status(201).send(saved_item);
     });
 
