@@ -10,6 +10,7 @@ import { FeedUploadComponent } from './feed-upload/feed-upload.component';
 import { FeedUploadButtonComponent } from './feed-upload/feed-upload-button/feed-upload-button.component';
 
 import { FeedProviderService } from './services/feed.provider.service';
+import { SharedPipeModule } from '../pipes/pipes.module';
 
 const entryComponents = [FeedUploadComponent];
 const components = [FeedListComponent, FeedItemComponent, FeedUploadComponent, FeedUploadButtonComponent];
@@ -19,7 +20,8 @@ const components = [FeedListComponent, FeedItemComponent, FeedUploadComponent, F
     CommonModule,
     FormsModule,
     IonicModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    SharedPipeModule
   ],
   declarations: components,
   exports: components,

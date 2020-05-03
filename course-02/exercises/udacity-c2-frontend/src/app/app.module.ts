@@ -12,6 +12,9 @@ import { MenubarComponent } from './menubar/menubar.component';
 
 import { AuthModule } from './auth/auth.module';
 import { ApiService } from './api/api.service';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthInterceptor } from './utils/AuthInterceptor';
+import { SharedPipeModule } from './pipes/pipes.module';
 
 @NgModule({
   declarations: [
@@ -23,13 +26,15 @@ import { ApiService } from './api/api.service';
     BrowserModule,
     IonicModule.forRoot(),
     AppRoutingModule,
-    AuthModule
+    AuthModule,
+    SharedPipeModule
   ],
   providers: [
     ApiService,
     StatusBar,
     SplashScreen,
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}
   ],
   bootstrap: [AppComponent]
 })
