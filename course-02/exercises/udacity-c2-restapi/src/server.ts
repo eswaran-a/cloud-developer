@@ -1,4 +1,7 @@
 import express from 'express';
+
+let cors = require('cors');
+
 import { sequelize } from './sequelize';
 
 import { IndexRouter } from './controllers/v0/index.router';
@@ -15,13 +18,14 @@ import { V0MODELS } from './controllers/v0/model.index';
   const port = process.env.PORT || 8080; // default port to listen
   
   app.use(bodyParser.json());
+  app.use(cors());
 
-  //CORS Should be restricted
-  app.use(function(req, res, next) {
-    res.header("Access-Control-Allow-Origin", "http://localhost:8100");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
-    next();
-  });
+  //CORS Should be restricted - commenting this so that udagram front end from cloudfront can access elastic beanstalk url
+  // app.use(function(req, res, next) {
+  //   res.header("Access-Control-Allow-Origin", "http://localhost:8100");
+  //   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
+  //   next();
+  // });
 
   app.use('/api/v0/', IndexRouter)
 
